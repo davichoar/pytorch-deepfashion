@@ -126,7 +126,7 @@ class FashionNetVgg16NoBn(nn.Module):
         return massive_attr, categories
 
 
-if __name__ == '__main__':
+def predict(img):
     fn = FashionNetVgg16NoBn()
 
     # pose network needs to be trained from scratch? i guess?
@@ -140,6 +140,6 @@ if __name__ == '__main__':
             torch.nn.init.xavier_normal_(fn.state_dict()[k])
             print('filling xavier {}'.format(k))
 
-    img = torch.Tensor(torch.rand(2, 3, 224, 224))
+    #img = torch.Tensor(torch.rand(2, 3, 224, 224))
 
-    fn(img)
+    return fn(img)
